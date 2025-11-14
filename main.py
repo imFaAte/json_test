@@ -53,11 +53,13 @@ def save_tasks(tasks):
 
 def view_tasks(tasks):
     if not tasks:
-        print(f"Список задач пуст ")
-        return []
-    else:
-        for i, task in enumerate(tasks, start=1):
-            print(f"{i}. {task['title']} — [{task['priority']}]")
+        print("Список задач пуст.")
+        return
+
+    for i, task in enumerate(tasks, start=1):
+        title = task.get('title', 'Без названия')
+        priority = task.get('priority', 'Не назначен')
+        print(f"{i}. {title} — [{priority}]")
     """
     Выводит список задач на экран.
 
